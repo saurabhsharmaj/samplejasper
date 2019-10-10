@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="islandERP" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d24edcf-4d8a-4e16-ba07-caa57a96c939">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<subDataset name="Table Dataset 1" uuid="06740bf6-a9af-46ad-98f7-103238298736">
+		<field name="Name" class="java.lang.String"/>
+	</subDataset>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement x="5" y="6" width="197" height="70" uuid="3c25f9f3-803f-4af3-b0a1-49747e4c85e8"/>
+				<imageExpression><![CDATA["D:\\upwork\\island\\logo-herblife.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="677d0019-1676-4375-801e-dfe5280e5b6f"/>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="d17fbf24-3308-45f0-bf19-638de428ff3c"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="0" width="555" height="1" uuid="6344eaf8-9d9c-4876-97c3-cfac395c80d8"/>
+			</line>
+			<staticText>
+				<reportElement x="3" y="3" width="100" height="16" uuid="cf220c0b-a12c-42fe-9ca6-8b4cea1dd526"/>
+				<text><![CDATA[Invoice billing details]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="212" y="3" width="60" height="20" uuid="676ec789-4220-4c0e-8c0f-39e394195119"/>
+				<text><![CDATA[Invoice No:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="407" y="3" width="27" height="20" uuid="30428914-d39d-4478-94b0-6b59b81eb0e3"/>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="272" y="3" width="100" height="20" uuid="64715adb-8221-4f10-8920-ca7aabcecc71"/>
+			</textField>
+			<textField>
+				<reportElement x="434" y="3" width="100" height="20" uuid="2b8a01e6-4bab-4e3c-a97c-da6ed0c274ff"/>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="0" width="50" height="20" uuid="63b723af-0fb8-4eca-80cc-c2f4eef18170"/>
+				<text><![CDATA[Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="21" width="50" height="20" uuid="e3fb86ed-1ac0-4c43-a974-98608cf2a6f3"/>
+				<text><![CDATA[Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="41" width="50" height="20" uuid="b5f502f0-015f-45eb-9797-9e964db2da2a"/>
+				<text><![CDATA[City]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="51" y="0" width="100" height="20" uuid="c79a0c5a-a866-458f-a8e5-1b220d4c6c20"/>
+			</textField>
+			<textField>
+				<reportElement x="51" y="21" width="100" height="20" uuid="169556ff-3ede-4187-a891-d5c7ab17be05"/>
+			</textField>
+			<textField>
+				<reportElement x="51" y="41" width="100" height="20" uuid="c2946907-dfe2-43c4-9f91-e55d67db1bdb"/>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<staticText>
+				<reportElement x="1" y="1" width="50" height="20" uuid="d5e6aea4-3483-4963-ad63-19e7e2b50c36"/>
+				<text><![CDATA[State]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table" style="table" x="0" y="21" width="555" height="104" uuid="90856dd0-bb10-4254-a352-fdb4046b6d8d"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" whenNoDataType="AllSectionsNoDetail">
+					<datasetRun subDataset="Table Dataset 1" uuid="c3ac1131-823a-4107-b762-4f1b2899053a">
+						<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.JREmptyDataSource(1)]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="282" uuid="cf063fab-075b-4277-8f7c-151da9d40f39">
+						<jr:tableHeader style="table_TH" height="0" rowSpan="1"/>
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<textField>
+								<reportElement positionType="Float" x="102" y="10" width="62" height="19" uuid="2382e7a7-9f40-4cfc-a7aa-d8393b33fc3b"/>
+								<textFieldExpression><![CDATA[Product]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="29" rowSpan="1"/>
+					</jr:column>
+					<jr:column width="90" uuid="d7e6c3e5-4d7c-4ab5-a3c6-062126d3e528">
+						<jr:tableHeader style="table_TH" height="0" rowSpan="1"/>
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="14" y="9" width="45" height="20" uuid="036cc3d5-a978-47e6-baf4-6216b24a6fa2"/>
+								<textFieldExpression><![CDATA[Quantity]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:detailCell style="table_TD" height="29" rowSpan="1"/>
+					</jr:column>
+					<jr:column width="90" uuid="fa65be2e-8e4a-4f49-b93f-e8e1ac79ac15">
+						<jr:tableHeader style="table_TH" height="0" rowSpan="1"/>
+						<jr:tableFooter style="table_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="27" y="7" width="41" height="20" uuid="cb6c7022-641f-442f-90b0-8589eaf71793"/>
+								<textFieldExpression><![CDATA[Price]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:columnFooter style="table_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table_TD" height="29" rowSpan="1"/>
+					</jr:column>
+					<jr:column width="90" uuid="6d85a9f7-4442-46ec-b311-32c5ba37efcd">
+						<jr:tableHeader style="table_TH" height="0" rowSpan="1"/>
+						<jr:tableFooter style="table_TH" height="30" rowSpan="1"/>
+						<jr:columnHeader style="table_CH" height="30" rowSpan="1">
+							<textField>
+								<reportElement x="26" y="7" width="36" height="20" uuid="fdc35bff-837f-445f-b2a6-ada77edf2ba2"/>
+								<textFieldExpression><![CDATA[Total]]></textFieldExpression>
+							</textField>
+						</jr:columnHeader>
+						<jr:columnFooter style="table_CH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table_TD" height="29" rowSpan="1"/>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<textField>
+				<reportElement x="51" y="1" width="100" height="20" uuid="3fb4a7f2-9007-471f-9401-33aa7eb5375c"/>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="44" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="51" width="553" height="1" uuid="307c1aef-9bd0-4625-af3f-761b3a3b4153"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="303" y="9" width="250" height="20" uuid="82ba460a-03d2-4361-b948-85b452c11be3"/>
+				<text><![CDATA[Receipt automatically generated by Island ERP]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
