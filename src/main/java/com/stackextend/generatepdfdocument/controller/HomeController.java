@@ -4,12 +4,14 @@ import java.util.Locale;
 
 import javax.annotation.Resource;
 
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.stackextend.generatepdfdocument.model.OrderModel;
+import com.stackextend.generatepdfdocument.model.Patient;
 import com.stackextend.generatepdfdocument.service.InvoiceService;
 import com.stackextend.generatepdfdocument.service.OrderService;
+import com.stackextend.generatepdfdocument.utils.PrintUtils;
 
 @RestController
 public class HomeController {
@@ -19,9 +21,10 @@ public class HomeController {
 	@Resource
 	private InvoiceService invoiceService;
 
-	@GetMapping
-	public String generate() throws Exception {
-		OrderModel order = orderService.getOrderByCode("XYZ123456789");        
-		return invoiceService.generateInvoiceFor(order, Locale.ENGLISH);
+	@PostMapping
+	public void generate(@RequestBody Patient patient) throws Exception {
+		
+		String prescription = invoiceService.generate(patient, Locale.ENGLISH);
+	   PrintUtils.print(prescription);
 	}
 }
