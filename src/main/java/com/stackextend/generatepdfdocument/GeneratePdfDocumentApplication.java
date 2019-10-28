@@ -11,7 +11,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.stackextend.generatepdfdocument.model.BasicHealth;
-import com.stackextend.generatepdfdocument.model.OrderModel;
 import com.stackextend.generatepdfdocument.model.Patient;
 import com.stackextend.generatepdfdocument.service.InvoiceService;
 import com.stackextend.generatepdfdocument.service.OrderService;
