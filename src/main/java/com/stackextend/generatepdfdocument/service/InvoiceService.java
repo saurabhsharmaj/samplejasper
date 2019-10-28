@@ -2,6 +2,7 @@ package com.stackextend.generatepdfdocument.service;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collections;
 import java.util.HashMap;
@@ -52,11 +53,8 @@ public class InvoiceService {
         return JasperCompileManager.compileReport(jasperDesign);
     }
 
-	public String generate(Patient patient, Locale locale) {
-		File dir = new File("D:\\upwork\\island\\code\\POC-Code\\jasperreports-pdf-generation-example\\my-invoice");
-    	dir.mkdirs();
-        File pdfFile = new File("D:\\upwork\\island\\code\\POC-Code\\jasperreports-pdf-generation-example\\my-invoice\\my-invoice.pdf");
-
+	public String generate(Patient patient, Locale locale) throws IOException {
+		File pdfFile = File.createTempFile("precption", ".pdf");
         log.info(String.format("Invoice pdf path : %s", pdfFile.getAbsolutePath()));
 
         try(FileOutputStream pos = new FileOutputStream(pdfFile))
