@@ -1,16 +1,20 @@
 package com.stackextend.generatepdfdocument;
 
-import com.stackextend.generatepdfdocument.model.OrderModel;
-import com.stackextend.generatepdfdocument.service.InvoiceService;
-import com.stackextend.generatepdfdocument.service.OrderService;
+import java.util.Locale;
+
+import javax.annotation.Resource;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import javax.annotation.Resource;
-import java.util.Locale;
+import com.stackextend.generatepdfdocument.model.BasicHealth;
+import com.stackextend.generatepdfdocument.model.OrderModel;
+import com.stackextend.generatepdfdocument.model.Patient;
+import com.stackextend.generatepdfdocument.service.InvoiceService;
+import com.stackextend.generatepdfdocument.service.OrderService;
 
 
 @SpringBootApplication
@@ -31,9 +35,14 @@ public class GeneratePdfDocumentApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
         log.info("Start invoice generation...");
 
-        OrderModel order = orderService.getOrderByCode("XYZ123456789");
+        Patient patient = new Patient();
         
-        invoiceService.generateInvoiceFor(order, Locale.ENGLISH);
+        patient.setName("Saurabh");
+        patient.setAge(34);
+        patient.setGender("Male");
+        BasicHealth basicHealth = new BasicHealth();
+		patient.setBasicHealth(basicHealth);
+        invoiceService.generate(patient, Locale.ENGLISH);
 
         log.info("Invoice generated successfully...");
 	}
